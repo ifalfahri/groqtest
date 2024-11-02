@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { requestToGroqAI } from "./utils/groq"
 import Markdown from 'react-markdown'
+import remarkGfm from "remark-gfm"
 
 function App() {
   const [data, setData] = useState("")
@@ -19,7 +20,24 @@ function App() {
         <button onClick={handleSubmit} type="button" className="bg-indigo-500 rounded-md py-2 px-4 font-bold text-white">Send</button>
       </form>
       <div className="text-white w-3/4 bg-gray-800 p-8 rounded break-words text-wrap">
-        <Markdown>{data}</Markdown>
+      <Markdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            // Render bold text
+            strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+            // Render inline code
+            code: ({ inline, children }) => 
+              inline ? (
+                <code className="bg-gray-700 text-white rounded-md px-1 py-0.5">{children}</code>
+              ) : (
+                <pre className="bg-gray-700 text-white rounded-md px-3 py-2 overflow-auto">
+                  <code>{children}</code>
+                </pre>
+              ),
+          }}
+        >
+          {data}
+        </Markdown>
         </div>
     </div>
   )
