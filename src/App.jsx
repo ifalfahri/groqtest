@@ -11,7 +11,7 @@ function App() {
   }
   return (
     <div className="flex flex-col min-h-[100vh] justify-center items-center w-full">
-      <h1 className="text-4xl text-white font-bold m-2">GROQ Test</h1>
+      <h1 className="text-4xl text-white font-bold m-2">GROQ Chat Test</h1>
       <form className="flex flex-col gap-4 py-4">
         <input
          className="py-2 px-4 text-md rounded-md text-black" type="text"
