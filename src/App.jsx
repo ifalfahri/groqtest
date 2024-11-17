@@ -17,7 +17,7 @@ function App() {
          className="py-2 px-4 text-md rounded-md text-black" type="text"
          placeholder="What do you want?"
          id="content" />
-        <button onClick={handleSubmit} type="button" className="bg-indigo-500 rounded-md py-2 px-4 font-bold text-white">Send</button>
+        <button onClick={handleSubmit} type="button" className="bg-indigo-500 hover:bg-indigo-600 rounded-md py-2 px-4 font-bold text-white">Send</button>
       </form>
       <div className="text-white w-3/4 bg-gray-800 p-8 rounded break-words text-wrap">
       <Markdown
